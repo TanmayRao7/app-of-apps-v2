@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: simple-web-app
+  name: app-of-apps-main
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/TanmayRao7/argocd-example-apps.git'
-    targetRevision: 
-    path: apps-of-apps/environments
+    repoURL: 'https://github.com/TanmayRao7/app-of-apps-v2.git'
+    targetRevision: main
+    path: environments
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
