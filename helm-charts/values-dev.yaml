@@ -15,5 +15,6 @@ nodeSelector: {}
 tolerations: []
 affinity: {}
 env: dev
+configName: "dev-app-config"
 # custom:
 #   homepageText: "DEV Release: 1.16"

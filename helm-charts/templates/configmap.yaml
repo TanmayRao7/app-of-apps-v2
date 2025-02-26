@@ -9,7 +9,7 @@ data:
     <head><title>Home Page</title></head>
     <body>
     <pre>
-{{ .Files.Get (printf "app-config/%s-app-config.properties" .Values.env) | indent 4 }}
+{{ .Files.Get (printf "app-config/%s.properties" .Values.configName) | indent 4 }}
     </pre>
     </body>
     </html>

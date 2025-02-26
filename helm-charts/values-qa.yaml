@@ -15,5 +15,6 @@ nodeSelector: {}
 tolerations: []
 affinity: {}
 env: qa
+configName: "qa-app-config"
 # custom:
 #   homepageText: "QA Release: 1.18"
