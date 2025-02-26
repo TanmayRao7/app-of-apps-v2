@@ -14,5 +14,6 @@ autoscaling:
 nodeSelector: {}
 tolerations: []
 affinity: {}
-custom:
-  homepageText: "QA Release: 1.18"
+env: qa
+# custom:
+#   homepageText: "QA Release: 1.18"

@@ -28,17 +28,3 @@ spec:
         - name: homepage-config
           configMap:
             name: homepage-config
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: homepage-config
-  namespace: {{ .Release.Namespace }}  # Add the namespace
-data:
-  index.html: |
-    <html>
-    <head><title>Home Page</title></head>
-    <body>
-    <h1>{{ .Values.custom.homepageText }}</h1>
-    </body>
-    </html>

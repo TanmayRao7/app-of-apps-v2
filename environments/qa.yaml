@@ -35,6 +35,9 @@ spec:
           helm:
             valueFiles:
               - '{{ .valuesFile }}'
+        - repoURL: https://github.com/TanmayRao7/app-of-apps-v2.git
+          targetRevision: main
+          path: app-config
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ .namespace }}'
