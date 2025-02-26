@@ -12,9 +12,11 @@ spec:
         - name: nginx-dev-v1
           imageVersion: 1.7.0
           namespace: nginx-dev-v1
+          valuesFile: "helm-charts/values-dev.yaml"
         - name: nginx-dev-v2
           imageVersion: 1.7.0
           namespace: nginx-dev-v2
+          valuesFile: "helm-charts/values-dev.yaml"
   template:
     metadata:
       name: '{{ .name }}'
@@ -27,14 +29,12 @@ spec:
         syncOptions:
         - CreateNamespace=true        
       sources:
-        - chart: nginx-ingress
-          repoURL: https://helm.nginx.com/stable
-          targetRevision: latest
+        - repoURL: https://github.com/TanmayRao7/nginx-helm.git
+          targetRevision: master
+          path: nginx-chart 
           helm:
-            values: |
-              controller:
-                image:
-                  tag: '{{ .imageVersion }}'
+            valueFiles:
+              - '{{ .valuesFile }}'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ .namespace }}'

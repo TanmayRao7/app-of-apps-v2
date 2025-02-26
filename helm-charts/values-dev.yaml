@@ -1,0 +1,18 @@
+replicaCount: 1
+image:
+  repository: nginx
+  tag: "1.16" 
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+ingress:
+  enabled: false
+resources: {}
+autoscaling:
+  enabled: false
+nodeSelector: {}
+tolerations: []
+affinity: {}
+custom:
+  homepageText: "DEV Release: 1.16"
