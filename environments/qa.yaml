@@ -9,12 +9,12 @@ spec:
   generators:
   - list:
       elements:
-        - name: app-v1
-          namespace: app-v1
+        - name: app-v3
+          namespace: app-v3
           valuesFile: "values-qa.yaml"
           environment: qa
-        - name: app-v2
-          namespace: app-v2
+        - name: app-v4
+          namespace: app-v4
           valuesFile: "values-qa.yaml"
           environment: qa
   template:
