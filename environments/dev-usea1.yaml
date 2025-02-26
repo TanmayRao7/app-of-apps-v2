@@ -31,7 +31,7 @@ spec:
           path: helm-charts
           helm:
             valueFiles:
-            - ../../appconfig/env/config/{{.path.basename}}-values.yaml
+            - ../appconfig/env/config/{{.path.basename}}-values.yaml
             # - ../../k8sconfig/apps/{{ .name }}/values-{{.path.basename}}.yaml
             # - ../../appconfig/global-values.yaml
       destination:
