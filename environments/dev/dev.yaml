@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: dev-appset
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - list:
+      elements:
+        - name: nginx-dev-v1
+          imageVersion: 1.21.6
+          namespace: nginx-dev-v1
+        - name: nginx-dev-v1
+          imageVersion: 1.23.2
+          namespace: nginx-dev-v1
+  template:
+    metadata:
+      name: '{{ .name }}'
+    spec:
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true        
+      sources:
+        - chart: nginx-ingress
+          repoURL: https://helm.nginx.com/stable
+          targetRevision: latest
+          helm:
+            values: |
+              controller:
+                image:
+                  tag: '{{ .imageVersion }}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{ .namespace }}'
