@@ -10,16 +10,16 @@ spec:
   - list:
       elements:
         - name: app-v3
-          namespace: app-v3
+          namespace: qa
           valuesFile: "values-qa.yaml"
-          environment: qa
+          environment: qa-v1
         - name: app-v4
-          namespace: app-v4
+          namespace: qa-v2
           valuesFile: "values-qa.yaml"
           environment: qa
   template:
     metadata:
-      name: '{{ .name }}-{{ .environment }}'
+      name: '{{ .environment }}-{{ .name }}'
     spec:
       project: default
       syncPolicy:

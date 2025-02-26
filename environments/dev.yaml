@@ -10,16 +10,16 @@ spec:
   - list:
       elements:
         - name: app-v1
-          namespace: app-v1
+          namespace: dev-v1
           valuesFile: "values-dev.yaml"
           environment: dev
         - name: app-v2
-          namespace: app-v2
+          namespace: dev-v2
           valuesFile: "values-dev.yaml"
           environment: dev
   template:
     metadata:
-      name: '{{ .name }}-{{ .environment }}'
+      name: '{{ .environment }}-{{ .name }}'
     spec:
       project: default
       syncPolicy:
