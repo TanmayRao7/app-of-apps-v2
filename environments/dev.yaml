@@ -9,15 +9,17 @@ spec:
   generators:
   - list:
       elements:
-        - name: nginx-dev-v1
-          namespace: nginx-dev-v1
+        - name: app-v1
+          namespace: app-v1
           valuesFile: "values-dev.yaml"
-        - name: nginx-dev-v2
-          namespace: nginx-dev-v2
+          environment: dev
+        - name: app-v2
+          namespace: app-v2
           valuesFile: "values-dev.yaml"
+          environment: dev
   template:
     metadata:
-      name: '{{ .name }}'
+      name: '{{ .name }}-{{ .environment }}'
     spec:
       project: default
       syncPolicy:

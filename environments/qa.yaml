@@ -9,15 +9,17 @@ spec:
   generators:
   - list:
       elements:
-        - name: nginx-qa-v1
-          namespace: nginx-qa-v1
+        - name: app-v1
+          namespace: app-v1
           valuesFile: "values-qa.yaml"
-        - name: nginx-qa-v2
-          namespace: nginx-qa-v2
+          environment: qa
+        - name: app-v2
+          namespace: app-v2
           valuesFile: "values-qa.yaml"
+          environment: qa
   template:
     metadata:
-      name: '{{ .name }}'
+      name: '{{ .name }}-{{ .environment }}'
     spec:
       project: default
       syncPolicy:
