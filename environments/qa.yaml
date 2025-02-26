@@ -29,9 +29,9 @@ spec:
         syncOptions:
         - CreateNamespace=true        
       sources:
-        - repoURL: https://github.com/TanmayRao7/nginx-helm.git
-          targetRevision: master
-          path: nginx-chart 
+        - repoURL: https://github.com/TanmayRao7/app-of-apps-v2.git
+          targetRevision: main
+          path: helm-charts
           helm:
             valueFiles:
               - '{{ .valuesFile }}'
