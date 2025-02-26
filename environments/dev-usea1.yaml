@@ -1,0 +1,39 @@
+kind: ApplicationSet
+metadata:
+  name: dev-app-appset
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - matrix:
+      generators:
+      - git:
+          repoURL: https://github.com/TanmayRao7/app-of-apps-v2.git
+          revision: main
+          files:
+          - path: appconfig/env/applist/*/applist.yaml
+      - list:
+          elements: []
+          elementsYaml: "{{ .key.components | toJson }}"
+  template:
+    metadata:
+      name: '{{ .name }}-{{.path.basename}}'
+    spec:
+      project: default
+      syncPolicy:
+        automated: null
+        syncOptions:
+        - CreateNamespace=true        
+      sources:
+        - repoURL: https://github.com/TanmayRao7/app-of-apps-v2.git
+          targetRevision: '{{ .targetversion }}'
+          path: helm-charts
+          helm:
+            valueFiles:
+            - ../../appconfig/env/config/{{.path.basename}}-values.yaml
+            # - ../../k8sconfig/apps/{{ .name }}/values-{{.path.basename}}.yaml
+            # - ../../appconfig/global-values.yaml
+      destination:
+        server: '{{.clusterName}}'
+        namespace: '{{.path.basename}}'

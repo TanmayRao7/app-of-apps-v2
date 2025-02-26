@@ -1,0 +1,7 @@
+defaults: &defaultValues
+  targetversion: main
+  clusterName: in-cluster #To be replaced by the DEV cluster name
+key:
+  components:
+    - name: dev-usea1-values.yaml
+      <<: *defaultValues
