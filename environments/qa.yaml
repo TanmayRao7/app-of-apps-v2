@@ -10,11 +10,9 @@ spec:
   - list:
       elements:
         - name: nginx-qa-v1
-          imageVersion: 1.7.0
           namespace: nginx-qa-v1
           valuesFile: "helm-charts/values-qa.yaml"
         - name: nginx-qa-v2
-          imageVersion: 1.7.0
           namespace: nginx-qa-v2
           valuesFile: "helm-charts/values-qa.yaml"
   template:

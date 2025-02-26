@@ -10,11 +10,9 @@ spec:
   - list:
       elements:
         - name: nginx-dev-v1
-          imageVersion: 1.7.0
           namespace: nginx-dev-v1
           valuesFile: "helm-charts/values-dev.yaml"
         - name: nginx-dev-v2
-          imageVersion: 1.7.0
           namespace: nginx-dev-v2
           valuesFile: "helm-charts/values-dev.yaml"
   template:
