@@ -11,10 +11,10 @@ spec:
       elements:
         - name: nginx-qa-v1
           namespace: nginx-qa-v1
-          valuesFile: "helm-charts/values-qa.yaml"
+          valuesFile: "values-qa.yaml"
         - name: nginx-qa-v2
           namespace: nginx-qa-v2
-          valuesFile: "helm-charts/values-qa.yaml"
+          valuesFile: "values-qa.yaml"
   template:
     metadata:
       name: '{{ .name }}'

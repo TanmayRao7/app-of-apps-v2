@@ -11,10 +11,10 @@ spec:
       elements:
         - name: nginx-dev-v1
           namespace: nginx-dev-v1
-          valuesFile: "helm-charts/values-dev.yaml"
+          valuesFile: "values-dev.yaml"
         - name: nginx-dev-v2
           namespace: nginx-dev-v2
-          valuesFile: "helm-charts/values-dev.yaml"
+          valuesFile: "values-dev.yaml"
   template:
     metadata:
       name: '{{ .name }}'
