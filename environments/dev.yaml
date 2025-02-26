@@ -10,10 +10,10 @@ spec:
   - list:
       elements:
         - name: nginx-dev-v1
-          imageVersion: 1.21.6
+          imageVersion: 1.14
           namespace: nginx-dev-v1
         - name: nginx-dev-v2
-          imageVersion: 1.23.2
+          imageVersion: 1.18
           namespace: nginx-dev-v2
   template:
     metadata:
