@@ -12,9 +12,9 @@ spec:
         - name: nginx-qa-v1
           imageVersion: 1.21.6
           namespace: nginx-qa-v1
-        - name: nginx-qa-v1
+        - name: nginx-qa-v2
           imageVersion: 1.23.2
-          namespace: nginx-qa-v1
+          namespace: nginx-qa-v2
   template:
     metadata:
       name: '{{ .name }}'
